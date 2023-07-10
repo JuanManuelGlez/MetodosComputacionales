@@ -1,5 +1,6 @@
 #lang racket
 
+;; Args-swap: fun num num => lst
 (define args-swap
   (lambda (f)
     (lambda (x y)
@@ -11,6 +12,7 @@
 ((args-swap cons) '(1 2 3) '(4 5 6)) 
 ((args-swap map) '(-1 1 2 5 10) /)
 
+;;there-exist-one?: fun list => bool
 (define there-exists-one?
   (lambda (f lst)
       (cond
@@ -25,6 +27,7 @@
 (there-exists-one? symbol? '(4 8 15 16 23 42))
 (there-exists-one? symbol? '(4 8 15 sixteen 23 42))
 
+;;linear-search-aux: lst num fun num => fun
 (define linear-search-aux
   (lambda (lst  x eq-fun acum)
     (cond
@@ -33,6 +36,7 @@
       [else (linear-search-aux (cdr lst) x eq-fun (+ 1 acum))]
       )))
 
+;; linear-search: list num fun => pos
 (define linear-search
   (lambda (lst  x eq-fun)
     (linear-search-aux lst x eq-fun 0)))
