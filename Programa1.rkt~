@@ -1,6 +1,0 @@
-#lang raquet
-
-(define sum
-  (lambda 
-
-(sum 10 4)
