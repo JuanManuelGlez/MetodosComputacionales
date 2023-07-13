@@ -1,0 +1,4 @@
+Tiempo sequencial 1.7744
+Tiempo paralelo .678021
+
+
