@@ -1,0 +1,5 @@
+sequencial: 0.00595368
+Paralel: 0.00172288
+
+Speed up: 5.532799911
+Eficiencia: .691599989

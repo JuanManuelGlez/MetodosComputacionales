@@ -1,4 +1,5 @@
 Tiempo sequencial 1.7744
 Tiempo paralelo .678021
 
-
+SpeedUp: 2.617028086
+Eficiencia1. 0.327128511
