@@ -37,7 +37,7 @@ int main (int argc, char* argv[]){
     //conteo de pares
     totalTime = 0;
     cout<<"starting..."<<endl;
-    for (int j=0;j<10;j++){
+    for (int j=0;j<10;j++){     
         start = high_resolution_clock::now();
         for(int i=0; i<MAX_SIZE; i++){
          if(arr[i]%2==0){
