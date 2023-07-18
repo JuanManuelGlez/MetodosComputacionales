@@ -1,0 +1,4 @@
+Tiempo de ejecución en secuencial: 4.00311 segundos
+Tiempo de ejecución en paralelo: 1.22826 segundos
+Speed up: 3.259171511
+Eficiencia: 0.407396439
