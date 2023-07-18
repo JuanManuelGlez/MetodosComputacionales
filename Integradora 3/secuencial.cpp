@@ -2,7 +2,8 @@
 // Matricula: A00572003
 // Comando para correr: g++ secuencial.cpp -o app
 // Descripción: Este programa imprime la suma de los números primos menores a 5000000
-
+// Tiempo : 4.00311 segundos
+// 0.00106 segundos
 
 #include <iostream>
 #include <iomanip>
@@ -17,7 +18,8 @@ bool esPrimo(int n){
     if(n<2){
         return false;
     }
-    for (int i=2; i<=sqrt(n); i++){
+    int m= sqrt(n);
+    for (int i=2; i<=m; i++){
         if(n%i==0){
             return false;
             
@@ -40,18 +42,19 @@ int main (int argc, char* argv[]){
     totalTime = 0;
     cout<<"starting..."<<endl;
     for(int j=0; j<10;j++){
+        suma = 0;
         start = high_resolution_clock::now();
         for (int i =0; i<max;i++){
             if (esPrimo(i)){
                 //cout << i << "+"<<suma<<endl;
-                suma=suma+i;
+                suma+=i;
             }
         }
         end = high_resolution_clock::now();
         totalTime += duration_cast<duration<double>>(end - start).count();
     }
 
-    cout << "La suma de los números primos menores a " << max << " es: " << suma/10 << endl;
+    cout << "La suma de los números primos menores a " << max << " es: " << fixed<<setprecision(0)<<suma << endl;
     totalTime /=10;
     cout << "El tiempo total fue de " << totalTime << endl;
 

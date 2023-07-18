@@ -5,7 +5,7 @@
 using namespace std;
 using namespace std::chrono;
 
-const int MAX_SIZE = 1000000; 
+const int MAX_SIZE = 5000000; 
 
 typedef struct{
     int start, end;

@@ -5,7 +5,7 @@
 using namespace std;
 using namespace std::chrono;
 
-const int MAX_SIZE = 1000000; 
+const int MAX_SIZE = 5000000; 
 const int MAX_THREADS = 8;
 
 typedef struct{
@@ -44,10 +44,11 @@ int main (int argc, char* argv[]){
     for (int j=0;j<10;j++){
         
         start = high_resolution_clock::now();
+
         for(int i=0; i<MAX_THREADS; i++){
             blocks[i].start = i * blockSize;
             blocks[i].end = (i != (MAX_THREADS - 1))? (i + 1) * blockSize : MAX_SIZE;
-            pthread_create(&tids[i], NULL, task, (void*) &blocks[i]);
+            pthread_create(&tids[i], NULL, task, (void*) &blockSize);
         }
 
         result = 0;
@@ -63,5 +64,5 @@ int main (int argc, char* argv[]){
     }
     totalTime /= 10;
     cout << "El tiempo total fue de " << totalTime << endl;
-    cout<<"Pi es aproximadamente: "<<setprecision(15)<<result<<endl;
+    cout<<"Pi es aproximadamente: "<<setprecision(15)<<fixed<<setprecision(0)<<result<<endl;
 }
