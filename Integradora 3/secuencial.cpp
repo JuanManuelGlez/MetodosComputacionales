@@ -13,7 +13,7 @@ using namespace std;
 using namespace std::chrono;
 
 
-
+//Función que determina si un número es primo o no
 bool esPrimo(int n){
     if(n<2){
         return false;
@@ -44,6 +44,7 @@ int main (int argc, char* argv[]){
     for(int j=0; j<10;j++){
         suma = 0;
         start = high_resolution_clock::now();
+        //Suma de los numeros primos menores a 5000000
         for (int i =0; i<max;i++){
             if (esPrimo(i)){
                 //cout << i << "+"<<suma<<endl;

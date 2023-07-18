@@ -21,7 +21,7 @@ typedef struct{
     double result; 
 } Block;
 
-
+//Función que determina si un número es primo o no
 bool esPrimo(int i){
     int n = i;  
     if(n<2){
@@ -38,7 +38,7 @@ bool esPrimo(int i){
     return true;
 }
 
-
+//Función que suma los números primos de un bloque
 void* suma(void* param){
     Block *block = (Block*) param;
     double result = 0;
