@@ -2,7 +2,7 @@
 // Matricula: A00572003
 // Comando para correr: g++ -pthread -o app paralela.cpp
 // Descripción: Este programa imprime la suma de los números primos menores a 5000000 utilizando hilos 
-// Tiempo: 1.22826 segundos
+// Tiempo:  segundos
 
 #include <iostream>
 #include <iomanip>
