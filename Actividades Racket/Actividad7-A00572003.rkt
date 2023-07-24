@@ -40,16 +40,8 @@
 (deep-reverse '(a (b c d) 3))
 (deep-reverse '((1 2) 3 (4 (5 6))))
 (deep-reverse '(a (b (c (d (e (f (g (h i j)))))))))
+(deep-reverse '(#t #f #f))
 
 
-(define same
-  (lambda (lst)
-    (cond
-      []
 
 ;;pack: lst=> lst.
-(define pack
-  (lambda (lst)
-    (cond
-      [(null?) '()]
-      [= car cadr (append(cons(pack(car lst))))]
