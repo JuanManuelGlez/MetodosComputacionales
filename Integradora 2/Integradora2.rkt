@@ -8,15 +8,23 @@ Descripcion: programa que reciba como entrada la descripción de un autómata y 
   (lambda (list letra pos)
     (cond
       [(null? list) -1]
-      [(equal? pos (car (car list)))
-       (cond
+      [(and (equal? pos (car (car list)))
+            
          (equal? letra (car (cdr (car list))))
-         (car (cdr (cdr (car list))))
+       (car (cdr (cdr (car list)))) 
           )]
-      [else -2]
+      [else (compara (cdr list) letra pos)]
       )))
 
-(compara '((0 a 1) (0 b 2) (1 a 1) (1 b 3) (2 b 2) (2 a 1) (3 a 1) (3 b 4) (4 a 1) (4 b 2)) "a" 0)
+(define valida
+  (lambda (list entrada pos fin)
+    (cond
+      [(empty? entrada) pos]
+      [(= pos -1) #f]
+      [else (compara list (car entrada) pos) (valida list (cdr entrada) pos fin)]
+      )))
+
+(valida '((0 a 1) (0 b 2) (1 a 1) (1 b 3) (2 b 2) (2 a 1) (3 a 1) (3 b 4) (4 a 1) (4 b 2)) '(a b a b a a b b) 0 4)
 
 
 
