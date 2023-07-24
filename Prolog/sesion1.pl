@@ -8,7 +8,7 @@ pow(X, Y, Resultado) :-
     Y1 is Y - 1,
     pow(X, Y1, Temp),
     Resultado is X * Temp.
-
+    
 
 %%fibonacci(N, Resultado) define la función de fibonacci de N
 fib(1, 1) :- !.
