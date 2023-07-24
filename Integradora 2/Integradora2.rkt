@@ -35,7 +35,7 @@ Descripcion: programa que reciba como entrada la descripción de un autómata y 
 (define recorreLista
   (lambda (list entradas pos fin result)
     (cond
-      [(null? entradas) result]
+      [(null? entradas) (deep-reverse result)]
       [else 
             (recorreLista list (cdr entradas) pos fin (cons (valida list (car entradas) pos fin) result))]
       )))
@@ -46,11 +46,32 @@ Descripcion: programa que reciba como entrada la descripción de un autómata y 
       [(null? lst) '()]
       [(list? (car lst)) (append (deep-reverse(cdr lst)) (cons (deep-reverse(car lst)) '()))]
       [else (append (deep-reverse (cdr lst)) (list (car lst)))]
-      ))) 
+      )))
+
+(define inputs
+  (lambda (automata entradas)
+    (cond
+      [(null? automata) -1]
+      [(null? entradas) -1]
+      [else (recorreLista (caddr automata) entradas (car (cdr (cdr(cdr automata)))) (car (cdr (cdr(cdr(cdr automata))))) '() ) ]
+      )))
 
 
-(recorreLista '((0 a 1) (0 b 2) (1 a 1) (1 b 3) (2 b 2) (2 a 1) (3 a 1) (3 b 4) (4 a 1) (4 b 2)) '((a b b) (a b a) (a a a a)) 0 '(4) '())
+(define automata
+  '( (0 1 2 3 4)                         ; Conjunto de estados
+     (a b)                               ; Alfabeto de entrada
+     ((0 a 1) (0 b 2) (1 a 1) (1 b 3)    ; Transiciones
+      (2 b 2) (2 a 1) (3 a 1) (3 b 4)
+      (4 a 1) (4 b 2))
+     0                                   ; Pos
+     (4)                                 ; Fin
+   ))
 
+(define entradas
+  '( (a b a b a a b b a b b) (a a a a a a b) (a b a b a b b) (a b) (a b b) )
+)
+
+(inputs automata entradas)
 
 
 
