@@ -68,7 +68,7 @@ Descripcion: programa que reciba como entrada la descripción de un autómata y 
    ))
 
 (define entradas
-  '( (a b a b a a b b a b b) (a a a a a a b) (a b a b a b b) (a b) (a b b) )
+  '( (a b a b a a b b a b b) (a a a a a a b) (a b a b a b b) (a b) (a b b) (hola) )
 )
 
 (inputs automata entradas)
